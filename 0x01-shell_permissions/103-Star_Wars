@@ -1,0 +1,6 @@
+#!/bin/bash
+if ! command -v telnet &>/dev/null; then
+  echo "Error: telnet is not installed."
+  exit 1
+fi
+telnet towel.blinkenlights.nl
