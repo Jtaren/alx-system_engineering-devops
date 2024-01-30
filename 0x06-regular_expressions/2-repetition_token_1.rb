@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts ARGV[0].scan(/hb?tn/).join
+arg = ARGV[0]
+regex = /hb?tn/
+puts regex.match("#{arg}")
