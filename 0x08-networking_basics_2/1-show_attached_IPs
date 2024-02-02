@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 # This script dislays all active IPV4 IPs
 
-ifconfig | grep 'inet ' | awk '{print $2}'
+active_ips=$(ip -o addr show | awk '/inet addr/ {gsub("/", " "); print $2}')
+
+if [[ -z "$active_ips" ]]; then
+  echo "No active IPv4 IPs found."
+else
+  echo "Active IPv4 IPs:"
+
+  echo "$active_ips" | tr ' ' '\n'
+fi
